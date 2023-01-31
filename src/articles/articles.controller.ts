@@ -44,7 +44,7 @@ export class ArticlesController {
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.articlesService.remove(+id);
+  async remove(@Param('id') id: string) {
+    return await this.articlesService.remove(id);
   }
 }
