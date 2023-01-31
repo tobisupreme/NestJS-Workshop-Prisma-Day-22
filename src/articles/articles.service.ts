@@ -6,8 +6,8 @@ import { UpdateArticleDto } from './dto/update-article.dto';
 @Injectable()
 export class ArticlesService {
   constructor(private readonly prisma: PrismaService) {}
-  create(createArticleDto: CreateArticleDto) {
-    return 'This action adds a new article';
+  async create(createArticleDto: CreateArticleDto) {
+    return await this.prisma.article.create({ data: createArticleDto });
   }
 
   async findAll() {
